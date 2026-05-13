@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f5f5;
+  gap: 20px;
+}
+
+.text-section {
+  width: 100%;
+  text-align: center;
+}
+
+.text {
+  font-size: 24px;
+  color: #000;
+  font-weight: bold;
+  margin: 0;
+}
+
+.image-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.image {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+}
