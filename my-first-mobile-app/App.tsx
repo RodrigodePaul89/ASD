@@ -7,7 +7,7 @@ export default function App() {
   return (
     <ImageBackground source={{ uri: IMAGE_URI }} style={styles.background} imageStyle={styles.backgroundImage}>
       <View style={styles.overlay}>
-        <Text style={styles.text}></Text>
+        <Text style={styles.text}>¡Bienvenido a mi primera app móvil!</Text>
       </View>
     </ImageBackground>
   );
