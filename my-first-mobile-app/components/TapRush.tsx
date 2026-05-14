@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { Pressable, Text, View } from 'react-native';
-import { styles } from './styles';
+import { tapRushStyles } from '../style/tapRushStyles';
 
 const ROUND_SECONDS = 20;
 const TARGET_SIZE = 72;
@@ -69,20 +69,20 @@ export default function TapRush({ onExit }: { onExit: () => void }) {
     };
 
     return (
-        <View style={styles.gameContainer}>
-            <View style={styles.header}>
-                <Text style={styles.title}>Tap Rush</Text>
-                <Text style={styles.subtitle}>Toca el objetivo antes de que se escape</Text>
+        <View style={tapRushStyles.gameContainer}>
+            <View style={tapRushStyles.header}>
+                <Text style={tapRushStyles.title}>Tap Rush</Text>
+                <Text style={tapRushStyles.subtitle}>Toca el objetivo antes de que se escape</Text>
             </View>
 
-            <View style={styles.hud}>
-                <Text style={styles.hudItem}>Puntos: {score}</Text>
-                <Text style={styles.hudItem}>Tiempo: {timeLeft}s</Text>
-                <Text style={styles.hudItem}>Record: {bestScore}</Text>
+            <View style={tapRushStyles.hud}>
+                <Text style={tapRushStyles.hudItem}>Puntos: {score}</Text>
+                <Text style={tapRushStyles.hudItem}>Tiempo: {timeLeft}s</Text>
+                <Text style={tapRushStyles.hudItem}>Record: {bestScore}</Text>
             </View>
 
             <View
-                style={styles.board}
+                style={tapRushStyles.board}
                 onLayout={(event) => {
                     const { width, height } = event.nativeEvent.layout;
                     setBoard({ width, height });
@@ -91,27 +91,27 @@ export default function TapRush({ onExit }: { onExit: () => void }) {
                 {isRunning ? (
                     <Pressable
                         onPress={onHitTarget}
-                        style={[styles.target, { transform: [{ translateX: target.x }, { translateY: target.y }] }]}
+                        style={[tapRushStyles.target, { transform: [{ translateX: target.x }, { translateY: target.y }] }]}
                     >
-                        <Text style={styles.targetText}>+1</Text>
+                        <Text style={tapRushStyles.targetText}>+1</Text>
                     </Pressable>
                 ) : (
-                    <View style={styles.centerPanel}>
-                        <Text style={styles.panelTitle}>{timeLeft === 0 ? 'Tiempo terminado' : 'Listo para jugar'}</Text>
-                        <Text style={styles.panelText}>
+                    <View style={tapRushStyles.centerPanel}>
+                        <Text style={tapRushStyles.panelTitle}>{timeLeft === 0 ? 'Tiempo terminado' : 'Listo para jugar'}</Text>
+                        <Text style={tapRushStyles.panelText}>
                             Toca el circulo rojo tantas veces como puedas en {ROUND_SECONDS} segundos.
                         </Text>
-                        <Pressable style={styles.button} onPress={startGame}>
-                            <Text style={styles.buttonText}>{timeLeft === 0 ? 'Jugar otra vez' : 'Empezar'}</Text>
+                        <Pressable style={tapRushStyles.button} onPress={startGame}>
+                            <Text style={tapRushStyles.buttonText}>{timeLeft === 0 ? 'Jugar otra vez' : 'Empezar'}</Text>
                         </Pressable>
                     </View>
                 )}
             </View>
 
-            <View style={styles.bottomDock}>
-                <Pressable style={styles.exitButton} onPress={onExit}>
-                    <Text style={styles.exitIcon}>⌂</Text>
-                    <Text style={styles.exitText}> Salir al menu</Text>
+            <View style={tapRushStyles.bottomDock}>
+                <Pressable style={tapRushStyles.exitButton} onPress={onExit}>
+                    <Text style={tapRushStyles.exitIcon}>⌂</Text>
+                    <Text style={tapRushStyles.exitText}> Salir al menu</Text>
                 </Pressable>
             </View>
         </View>
